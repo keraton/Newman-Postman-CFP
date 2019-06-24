@@ -6,4 +6,4 @@ Postman est plutôt identique à un outil de test manuel qui permet aux utilisat
 
 Cette séance va vous montrer comment utiliser Postman et Newman pour accélérer l'écriture de test acceptance. Il couvre des techniques pour traiter différents cas d'utilisation (synchrone, asynchrone, workflow etc.). 
 
-Vous allez voir que avoir la même test en 
+Et une fois que l'infrastructure est mise en place, vous allez voir que avoir la même test en 
