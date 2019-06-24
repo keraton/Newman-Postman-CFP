@@ -1,4 +1,4 @@
-# Postman & Newman pour vos test d'acceptances
+# Postman & Newman pour accelerer vos test d'acceptances
 
 ## Pour audience
 
