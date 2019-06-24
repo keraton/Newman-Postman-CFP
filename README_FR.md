@@ -1,4 +1,4 @@
-# Accélérer vos test acceptance grâce à Postman & Newman
+# Postman & Newman pour vos CICD
 
 ## Pour les audiences
 
