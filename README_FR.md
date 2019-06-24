@@ -1,9 +1,7 @@
-# Accélérer vos test d'acceptance grâce à Postman & Newman
+# Accélérer vos test acceptance grâce à Postman & Newman
 
 ## Pour les audiences
 
-Postman est plutôt identique à un outil de test manuel qui permet aux utilisateurs d'appeler un service REST avec une aisance. Son UX design qui est intuitive et la possibilité de sauvegarder et partager ses collections rendre cet outil populaire parmi les développeurs. Ce que vous ne savez pas, c'est à côté de Postman, il y a maintenant Newman, le cli compagnon pour Postman. Newman est un client interface en ligne de commande pour lancer les collections Postman. Grace à Newman, vous pouvez maintenant intègre vos collections Postman à vos processus CICD.
+Postman est plutôt identique à un outil de test manuel qui permet aux utilisateurs d'appeler un service REST depuis son poste. Son UX design qui est intuitive et la possibilité de sauvegarder et partager ses collections rendre cet outil populaire parmi les développeurs. Ce que vous ne savez pas, c'est à côté de Postman, il y a maintenant Newman, le cli compagnon pour Postman. Newman est un client interface en ligne de commande (en open source) pour lancer les collections Postman. En utilisant Newman, l'integration de collection Postman au CICD est devenue possible.
 
-Cette séance va vous montrer comment utiliser Postman et Newman pour accélérer l'écriture de test acceptance. Il couvre des techniques pour traiter différents cas d'utilisation (synchrone, asynchrone, workflow etc.). 
-
-Et une fois que l'infrastructure est mise en place, vous allez voir que avoir la même test en 
+Cette séance va vous montrer comment utiliser Postman et Newman pour accélérer l'écriture de test acceptance. Il couvre des techniques pour traiter différents cas d'utilisation (synchrone, asynchrone, workflow etc.). Il est 
