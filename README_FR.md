@@ -2,47 +2,47 @@
 
 ## Pour les audiences
 
-Postman est plutôt identique à un outil de test manuel qui permet aux utilisateurs d'appeler un service REST depuis son poste. Son UX design qui est intuitive et la possibilité de sauvegarder et partager ses collections rendre cet outil populaire parmi les développeurs. Ce que vous ne savez pas, c'est à côté de Postman, il y a maintenant Newman, le cli compagnon pour Postman. Newman est un client interface en ligne de commande (en open source) pour lancer les collections Postman. En utilisant Newman, l'intégration de collection Postman au CICD est devenu possible.
+Postman est un outil qui permet aux utilisateurs d'appeler simplement et rapidement des APIs. Son interface intuitive, la possibilité de sauvegarder et partager ses collections de requêtes, ainsi que les différentes autres fonctionnalités ont rendu cet outil très populaire parmi les développeurs. Ce que vous ne savez pas peut-être pas, c'est que Postman a maintenant un compagnon CLI appelé Newman. Newman est un client interface en ligne de commande (open source) permettant de lancer des collections Postman. L'intégration de collections Postman au CICD est alors devenue possible.
 
-Cette séance va vous montrer comment écrire une collection de Postman et utiliser avec Newman dans un processus CICD. Il couvre des techniques pour traiter différents cas d'utilisation (synchrone, asynchrone, workflow etc.). Enfin, le Newman est aussi un lib de nodejs, ceci ouvre la possibilité d'extension et personnalissation selon vos besoin. Sortant de cette conférence, vous allez penser à traiter Postman différemment et réutiliser cette fois-ci pour CICD.
+Lors de cette session, nous allons vous montrer comment créer une collection Postman à partir d'une spécification OpenAPI afin de l'utiliser dans un processus CICD avec Newman. Nous couvrirons les techniques pour traiter différents cas d'utilisation (synchrone, asynchrone, workflow, etc..). Enfin, Newman est aussi une librairie nodejs, ce qui ouvre les possibilités d'extension et de personnalisation. En sortant de cette conférence, vous verrez Postman d'une manière différente, car en plus d'être un excellent outil pour tester manuellement ses APIs il permet de réutiliser les collections que vous avez créées dans votre cycle d'intégration et livraison continue.
 
 ## Pour le membre du jury
 
-Utilisateur de Postman depuis bien assez long temps, je viens de decouvrir le projet Newman. Je souhaite donc partager cette combination de Postman et Newman que je trouve très pratiques car maintenant on peut facilement executer les mêmes test depuis notre poste ou depuis CICD. La présentation sera composé de 
-- Des slides sur l'introduction de Postman et Newman (sur leur features)
-- Demo qui montre la création d'une collection à partir de Open API (Swagger) jusqu'a le deployment sur Jenkins Pipeline
-- Demo sur plusieurs use case : Synchrone, Asynchrone et Workflow. 
+Utilisateur de Postman depuis bien assez longtemps, je viens de decouvrir le projet Newman. Je souhaite donc partager cette combinaison Postman et Newman que je trouve très pratique. Nous pouvons maintenant facilement exécuter les mêmes tests depuis nos postes ou dans notre pipeline CICD. La présentation sera composée de :
+- Slides d'introduction sur Postman et Newman (fonctionnalités principales)
+- Démonstration de la création d'une collection à partir d'une spécification OpenAPI (ex Swagger) jusqu'à son intégration dans une pipeline Jenkins
+- Démonstration de plusieurs use-cases : Synchrone, Asynchrone et Workflow. 
 
-Voici les contenus provisoire de conférence en détail :
+Voici les contenus provisoire de la conférence en détails :
 - Introduction Postman
   - Postman collections
-  - Postman environment  
+  - Postman environments  
   - Request + Runner
   - Pre-request + Test
-  - Others postman fetaures : workspace, partage en équipe, sandbox/mock, monitoring
+  - Autres fonctionnalités : workspace, partage en équipe, sandbox/mock, monitoring
   
 - Introduction Newman
-  - Cli Postman
-  - Lib nodejs (npm)
+  - ClI Postman
+  - Librairie nodejs (npm)
   
-- Demo
-  - Context : Tester une application exposant un API REST (Open API)
-  - Importer les spécification Open API à Postman Collection
-  - Créer des environment
-  - Gestion de authentication
-  - Créer le test depuis Postman
+- Démonstration
+  - Contexte : Tester une application exposant une API REST (OpenAPI)
+  - Importer la spécification OpenAPI sur Postman
+  - Créer des environments
+  - Gestion de l'authentication
+  - Création de tests
   - Tester le cas asynchrone
-  - Workflow sur Postman
-  - Lancer le runner depuis GUI
-  - Exporter la collection et l'environment
-  - Lancer le runner depuis Newman
-  - Integrer Newman en CICD (Jenkins Pipeline)
+  - Tester la mise en place de workflow de test
+  - Utiliser le Runner sur Postman
+  - Exporter la collection et les environements
+  - Lancer le runner en utilisant Newman
+  - Intégrer Newman dans le CICD (Jenkins pipeline)
   - Montrer le rapport de Newman
-  - Montrer comment utilser Newman avec Serverless pour monitoring
+  - Montrer comment utilser la librairie Newman en Serverless pour faire du monitoring/alerting
   
  - Conclusion : 
-    - Point positive : Les gens utilisent déjà Postman donc facilite la création de test
-    - Point negative : pas de gestion de secret fournis, pas de partage automatique pour la collection.
+    - Points positifs : Les gens utilisent déjà Postman, on facilite donc la création de tests automatisés (pas la peine de faire appel à un autre langage/framework comme Cucumber/Karate)
+    - Points négatifs : Pas de gestion de secrets intégrés. Partage de collections limité
 
 ## Références :
 - https://www.getpostman.com/downloads/
