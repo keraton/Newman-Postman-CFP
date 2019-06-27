@@ -48,6 +48,6 @@ Voici les contenus provisoire de la conférence en détails :
 - https://www.getpostman.com/downloads/
 - https://github.com/postmanlabs/newman
 - https://www.npmjs.com/package/newman
-- Petit projet .. 
+- https://github.com/keraton/flight-service : demo project
   
 
