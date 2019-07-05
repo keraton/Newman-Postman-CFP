@@ -16,7 +16,6 @@ Introductory slides on Postman and Newman main features. Demonstration of the cr
 Demonstration of several use cases such as Synchronous, Asynchronous, and Workflow.
 
 Here are the provisional contents of the conference in details:
-
 - Postman Introduction
 - Postman collections
 - Postman environments
@@ -48,3 +47,9 @@ Context: Test an application exposing a REST API (OpenAPI)
 Positive points: People are already using Postman, so we facilitate the creation of automated tests (no need to use another language/framework like Cucumber / Karate)
 
 Negative points: No management of integrated secrets. Limited collection sharing
+
+## References :
+- https://www.getpostman.com/downloads/
+- https://github.com/postmanlabs/newman
+- https://www.npmjs.com/package/newman
+- https://github.com/keraton/flight-service : demo project
