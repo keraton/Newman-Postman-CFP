@@ -39,9 +39,9 @@ Context: Test an application exposing a REST API (OpenAPI)
 - Use the Runner on Postman
 - Export the collection and the environment
 - Run the runner using Newman
-- Integrate Newman into the CICD (Jenkins pipeline)
+- Integrate Newman into the CICD (Jenkins pipeline) (Docker)
 - Show Newman's report
-- Show how to use the Newman library in Serverless for monitoring / alerting
+- Show how to use the Newman library in Serverless for monitoring / alerting (SAM)
 
 ### Conclusion:
 Positive points: People are already using Postman, so we facilitate the creation of automated tests (no need to use another language/framework like Cucumber / Karate)
