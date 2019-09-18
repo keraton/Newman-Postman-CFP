@@ -34,7 +34,7 @@ Context: Test an application exposing a REST API (OpenAPI)
 - Create environments
 - Authentication management
 - Creation of tests
-- Test the asynchronous case
+- Test the asynchronous case (use Postman echo)
 - Test the implementation of test workflow
 - Use the Runner on Postman
 - Export the collection and the environment
