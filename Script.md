@@ -12,10 +12,10 @@ This how we will present Postman & Newman
   - Use case : BB -> XT  
 - Demo 
   - BB  -> Xavier please show us about the flight-service application that we have been build
-  - XT  -> Sure ... -> Until the post Booking
-        -> I'm going to use Postman to show the application
-        -> Import swagger to postman
-        -> Configure the Authentication 
+  - XT  Sure ... -> Until the post Booking
+        - I'm going to use Postman to show the application
+        - Import swagger to postman
+        - Configure the Authentication 
         -> Doing test from search, price, booking and getBooking status
   - BB  -> This look goods but, we are doing it manually
   - XT  -> Sure lets run it with run collection
