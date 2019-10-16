@@ -1,0 +1,57 @@
+This how we will present Postman & Newman
+-----------------------------------------
+
+- PPT (5 min - 7 min)
+  - Introduction : BB
+  - Polling : BB + XT
+  - Result Polling Result : BB
+  - Postman : BB
+  - Newman : XT
+  - Who we are : BB -> XT
+  - Egencia : BB
+  - Use case : BB -> XT  
+- Demo 
+  - BB  -> Xavier please show us about the flight-service application that we have been build
+  - XT  -> Sure ... -> Until the post Booking
+        -> I'm going to use Postman to show the application
+        -> Import swagger to postman
+        -> Configure the Authentication 
+        -> Doing test from search, price, booking and getBooking status
+  - BB  -> This look goods but, we are doing it manually
+  - XT  -> Sure lets run it with run collection
+        -> Show prescript
+        -> Show test
+        -> run collection will failed because off the getBooking is too fast
+  - BB  -> This because the booking is asynchrone, and the getBooking query is to early
+  - XT  -> No pb, lets add some delay
+        -> Rerun the demo
+  - BB  -> This is working now, but why do we need to put delay to all request, we only need delay between booking & getBooking
+  - XT  -> Sure lets put some delay between them
+  - BB  -> It is better but the delay is FIXED is not ideal, the booking could be very fast or very slow
+  - XT  -> I know that, lets put some loop over booking 
+        -> Show some loop and then 
+  - BB  -> This way better, but this still manual in the sense, you developper to run it from their computer
+  - XT  -> This is when I would like to introduce Newman
+        -> Export collection + environment
+        -> Run the collection & environment with newman
+  - BB  -> Ok, instead of running from Postman we are using Newman, but it still manual
+  - XT  -> The idea is to put this in our CICD
+        -> Show Jenkins file
+        -> Show package.json
+        -> Modify some version
+        -> Commit 
+        -> Run the pipeline
+  - BB  -> This is very cool, now we have the pipeline & regression test
+        -> But you know, this is a very new app, we don't have many users, I would like to know if it is available all the time
+        -> Can we can run this test all the time ?        
+  - XT  -> Sure, since newman is a npm lib, we can run them from any npm platform such as AWS Lambda
+        -> Show serverless + Code
+  - BB  -> This is quite good but I want to be alerted
+  - XT  -> Show the slack code
+        -> run aws api gateway
+        -> get the slack result
+ - PPT
+  - What we have seen : BB
+  - Pros & Cons : XT
+  - Rate us : BB & XT
+      
