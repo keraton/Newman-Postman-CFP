@@ -6,46 +6,49 @@ This how we will present Postman & Newman
   - Polling : BB + XT
   - Result Polling Result : BB
   - Postman : BB
-  - Newman : XT
-  - Who we are : BB -> XT
+  - Newman 
+    - XT
+      - So, We will talk about Newman, a command line tool to run your Postman collections from a terminal. It is an open-source project with an active community, already in V4 and also an npm library easy to download and use in any NodeJS code.
+  - Who we are : BB -> XT (.. and I am Xavier Thery, also a Software developer engineer at Egencia. You can add me on tweeter as well but I don't post often)
   - Egencia : BB
-  - Use case : BB -> XT  
+  - Use case : BB -> XT  (Ahah.. sure, we will do it anyway)
 - Demo 
   - BB
     - Xavier please show us about the flight-service application that we have been build
   - XT  
-    - Sure ... -> Until the post Booking
-    - I'm going to use Postman to show the application
-    - Import swagger to postman
-    - Configure the Authentication 
-    - Doing test from search, price, booking and getBooking status
+    - Sure our flight-service application has two main APIs: search and booking. Search works like this, given an origin like Paris CDG airport, a destination Toulouse TLS and a departure time, let's see in one month from now 05/12/2019. We get all available flights. we take one AF001 and we have details about its pricing with the following call /price/AF001. As for the booking, I will need some other tool in order to make a POST request, we could use cURL but of course we will use Postman.
+    - With Postman, you can create collections that contain your queries. But it is painfull to right all those queries manually even thought our sample API is quite small.
+    - You can now easily generate your OpenAPI specification or swagger from your API and vice-versa. Let's do this, we exposed our specification, we can copy it and import it in Postman. Now you have all your queries pre-generated.
+    - We need to declare some environment variables, for baseURL already defined by Swagger, but it can be done for any parameter, for origin for example. This way we can easily change them for all our queries depending on your test environment. Either localhost, alpha, beta or prod.
+    - Oh! Let's add some authentication, it can be done per queries or directly in the collection so every queries can inherit this behavior. 
+    - Now testing the same search, same request on pricing. And for booking we need to complete this prefilled body with the selected pricing. As booking is asynchronous, we also have a call to poll the booking status.
   - BB
     - This look goods but, we are doing it manually
   - XT  
-    - Sure lets run it with run collection
-    - Show prescript
-    - Show test
-    - run collection will failed because off the getBooking is too fast
+    - Sure I got prepared for this talk ;). Let's have a look at this collection where I copied all our calls: search, pricing, booking and get booking status
+    - I added a prescript, some Javascript executed before the request, in order to set a dynamic departure time. We use some postman APIs provided in order to do so, pm.setEnvironment
+    - And also a test, some Javascript executed after the request, in order to set some parameters for the next request, here the flight number. We are also doing some asertions, response ok, 7 flights in response, in order to automate our tests. You can see that we are also using some postman APIs and they include ChaiJS library in order to perform assertion, pm.expect.
+    - Running the collection, .. and it is failing because we are quite too fast I guess.
   - BB  
     - This because the booking is asynchrone, and the getBooking query is to early
   - XT  
-    - No pb, lets add some delay
-    - Rerun the demo
+    - Not a big deal, let's add some delay on our run. 4 seconds for example.
+    - Rerun the test. Now we wait 4 seconds between each query.
   - BB  
     - This is working now, but why do we need to put delay to all request, we only need delay between booking & getBooking
   - XT  
-    - Sure lets put some delay between them
+    - Ok Sure. Actually Postman provides some usefull endpoints. One we could be interested in is the delay. Here it will wait for 3 seconds until responding. Now let's copy it in our collection between the booking and the booking status with 5 seconds delay. Running the collection again.
   - BB  
     - It is better but the delay is FIXED is not ideal, the booking could be very fast or very slow
   - XT  
-    - I know that, lets put some loop over booking 
-    - Show some loop and then 
+    - I agree with you, a fixed delay is not ideal to run some automated tests. As I said, prerequest scripts and tests contain Javascript, so we can write some code to solve our issue.
+    - Using Javascript setTimeout and Postman.setNextRequest, we create the loop we need in order to wait for our booking to be successful. Let's try it.
   - BB  
     - This way better, but this still manual in the sense, you developper to run it from their computer
   - XT  
-    - This is when I would like to introduce Newman
-    - Export collection + environment
-    - Run the collection & environment with newman
+    - This is the time we introduce Newman
+    - Exporting our collection and environment as json
+    - Now running the same collection within a terminal with Newman CLI previously installed with npm.
   - BB  
     - Ok, instead of running from Postman we are using Newman, but it still manual
   - XT
