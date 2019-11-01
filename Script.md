@@ -48,31 +48,33 @@ This how we will present Postman & Newman
   - XT  
     - This is the time we introduce Newman
     - Exporting our collection and environment as json
-    - Now running the same collection within a terminal with Newman CLI previously installed with npm.
+    - Now running the same collection within a terminal with Newman CLI previously installed with npm. We get same result, but it is now much easier to reuse our collections anywhere.
   - BB  
     - Ok, instead of running from Postman we are using Newman, but it still manual
   - XT
-    - The idea is to put this in our CICD
-    - Show Jenkins file
-    - Show package.json
-    - Modify some version
-    - Commit 
-    - Run the pipeline
+    - Of course the idea is to add Newman to our CICD in order to have automated end to end test
+    - Here we use Jenkins with a Jenkinsfile. Our pipeline has few stages: build, package, test and deploy. Test is where we will execute Newman using npm and a package json file.
+    - See, in this package.json we added Newman dependency and we wrote the same command line from the terminal. Adding some reporters in order to save the result in a format that Jenkins can understand: HTML or junit
+    - Modifying application version just to relaunch our pipeline with a commit hook we put for the demonstration.
+    - As you can see, we have our 4 stages: build, package, test and deploy. It takes a while but you can already some junit results and HTML published from previous run. I will show you again this run in a moment.
   - BB  
     - This is very cool, now we have the pipeline & regression test
     - But you know, this is a very new app, we don't have many users, I would like to know if it is available all the time
     - Can we can run this test all the time ?        
   - XT  
-    - Sure, since newman is a npm lib, we can run them from any npm platform such as AWS Lambda
-    - Show serverless + Code
+    - Sure, since Newman is a npm library we can write any Javascript, NodeJS code and run it as serverless functions for example as it fit very well monitoring purpose. We chose AWS Lambda and the function can be triggered by a schedule or any event in some AWS ressources. 
+    - We decided to use Serverless framework to deploy our function with a schedule that will trigger Newman every 10 minutes.
+    - In the code we import Newman, using it is then quite similar to the command line: newman.run plus options containing our collection and environment.
   - BB  
     - This is quite good but I don't want to look at the log all the time, I want to be alerted
   - XT 
-    - Show the slack code
-    - run aws api gateway
-    - get the slack result
+    - We also added a slack webhook, see this snippet will send the result to our slack channel. Now we can be aware of any issue arising.
+    - During this talk our scheduled function was fired a few time as you can see, running Newman against our production application.
  - PPT
   - What we have seen : BB
-  - Pros & Cons : XT
+  - Pros & Cons 
+    - XT 
+      - From our personal usage the pros are that we can easily use the collections we were already using within our team to perform some acceptance tests. The learning curve is small if you already know how to use Postman and Newman CLI is quite straightforward. So no new language to learn, writing your first end to end test will be quick. Community support is big, for example you can find reporters for a lot of languages.
+      - Some minor cons. It is not possible to run multiple collections with one Newman run. Indeed we wanted to have a separate collection for each of our scenarios. In order to do that you will need multiple Newman command, wrap everything in a loop or perhaps contribute to the project. Credentials are not handled by either Postman or Newman so you will need a third party service to avoid delivering usernames/passwords.
   - Rate us : BB & XT
       
