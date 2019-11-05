@@ -24,7 +24,7 @@ This how we will present Postman & Newman
     - Xavier please show us about the flight-service application that we have been build
   - XT  
     - Sure our flight-service application has two main APIs: search and booking. Search works like this, given an origin like Paris CDG airport, a destination Toulouse TLS and a departure time, let's see in one month from now 05/12/2019. We get all available flights. we take one AF001 and we have details about its pricing with the following call /price/AF001. As for the booking, I will need some other tool in order to make a POST request, we could use cURL but of course we will use Postman.
-    - With Postman, you can create collections that contain your queries. (start doing that ??)
+    - With Postman, you can create collections that contain your queries. **(start doing that ??)**
  - BB
     -  But it is painfull to write all those queries manually even thought our sample API is quite small.
  - XT    
@@ -58,7 +58,7 @@ This how we will present Postman & Newman
     - This way better, but this still manual in the sense, developper, tester need to run it from their computer
   - XT  
     - This is the time we introduce Newman
-    - Exporting our collection and environment as json *(Need to show the json file of both collection & env)*
+    - Exporting our collection and environment as json **(Need to show the json file of both collection & env)**
     - Now running the same collection within a terminal with Newman CLI previously installed with npm. We get same result, but it is now much easier to reuse our collections anywhere.    
   - BB  
     - But I don't this is the end, we need to automatise this
