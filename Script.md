@@ -58,7 +58,7 @@ This how we will present Postman & Newman
     - This way better, but this still manual in the sense, developper, tester need to run it from their computer
   - XT  
     - This is the time we introduce Newman
-    - Exporting our collection and environment as json **(Need to show the json file of both collection & env), show the file is easy to read, Peer Review and can be put in the version control, **
+    - Exporting our collection and environment as json **(Need to show the json file of both collection & env), show the file is easy to read, Peer Review and can be put in the version control,)**
     - Now running the same collection within a terminal with Newman CLI previously installed with npm. We get same result, but it is now much easier to reuse our collections anywhere.    
   - BB  
     - But I don't this is the end, we need to automatise this
