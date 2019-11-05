@@ -24,13 +24,16 @@ This how we will present Postman & Newman
     - Xavier please show us about the flight-service application that we have been build
   - XT  
     - Sure our flight-service application has two main APIs: search and booking. Search works like this, given an origin like Paris CDG airport, a destination Toulouse TLS and a departure time, let's see in one month from now 05/12/2019. We get all available flights. we take one AF001 and we have details about its pricing with the following call /price/AF001. As for the booking, I will need some other tool in order to make a POST request, we could use cURL but of course we will use Postman.
-    - With Postman, you can create collections that contain your queries. But it is painfull to right all those queries manually even thought our sample API is quite small.
+    - With Postman, you can create collections that contain your queries. (start doing that ??)
+ - BB
+    -  But it is painfull to write all those queries manually even thought our sample API is quite small.
+ - XT    
     - You can now easily generate your OpenAPI specification or swagger from your API and vice-versa. Let's do this, we exposed our specification, we can copy it and import it in Postman. Now you have all your queries pre-generated.
     - We need to declare some environment variables, for baseURL already defined by Swagger, but it can be done for any parameter, for origin for example. This way we can easily change them for all our queries depending on your test environment. Either localhost, alpha, beta or prod.
     - Oh! Let's add some authentication, it can be done per queries or directly in the collection so every queries can inherit this behavior. 
     - Now testing the same search, same request on pricing. And for booking we need to complete this prefilled body with the selected pricing. As booking is asynchronous, we also have a call to poll the booking status.
   - BB
-    - This look goods but, we are doing it manually
+    - This look goods but, we need to run it one by one, can we just run the collection ?
   - XT  
     - Sure I got prepared for this talk ;). Let's have a look at this collection where I copied all our calls: search, pricing, booking and get booking status
     - I added a prescript, some Javascript executed before the request, in order to set a dynamic departure time. We use some postman APIs provided in order to do so, pm.setEnvironment
@@ -55,10 +58,10 @@ This how we will present Postman & Newman
     - This way better, but this still manual in the sense, developper, tester need to run it from their computer
   - XT  
     - This is the time we introduce Newman
-    - Exporting our collection and environment as json
-    - Now running the same collection within a terminal with Newman CLI previously installed with npm. We get same result, but it is now much easier to reuse our collections anywhere.
+    - Exporting our collection and environment as json *(Need to show the json file of both collection & env)*
+    - Now running the same collection within a terminal with Newman CLI previously installed with npm. We get same result, but it is now much easier to reuse our collections anywhere.    
   - BB  
-    - Ok, instead of running from Postman we are using Newman, but it still manual
+    - But I don't this is the end, we need to automatise this
   - XT
     - Of course the idea is to add Newman to our CICD in order to have automated end to end test
     - Here we use Jenkins with a Jenkinsfile. Our pipeline has few stages: build, package, test and deploy. Test is where we will execute Newman using npm and a package json file.
@@ -71,7 +74,7 @@ This how we will present Postman & Newman
     - Can we can use this test for monitoring ?        
   - XT  
     - Sure, since Newman is a npm library we can write any Javascript, NodeJS code and run it as serverless functions for example as it fit very well monitoring purpose. We chose AWS Lambda and the function can be triggered by a schedule or any event in some AWS ressources. 
-    - We decided to use Serverless framework to deploy our function with a schedule that will trigger Newman every 10 minutes.
+    - We decided to use Serverless framework to deploy our function with a schedule that will trigger Newman every 1 minutes.
     - In the code we import Newman, using it is then quite similar to the command line: newman.run plus options containing our collection and environment.
   - BB  
     - This is quite good but I don't want to look at the log all the time, I want to be alerted
@@ -82,9 +85,14 @@ This how we will present Postman & Newman
   - What we have seen : 
      - BB
         - Proper test
+        - Not only test but also REST design, 
+        - No it start to support GraphQL
   - Pros & Cons 
     - XT 
       - From our personal usage the pros are that we can easily use the collections we were already using within our team to perform some acceptance tests. The learning curve is small if you already know how to use Postman and Newman CLI is quite straightforward. So no new language to learn, writing your first end to end test will be quick. Community support is big, for example you can find reporters for a lot of languages.
       - Some minor cons. It is not possible to run multiple collections with one Newman run. Indeed we wanted to have a separate collection for each of our scenarios. In order to do that you will need multiple Newman command, wrap everything in a loop or perhaps contribute to the project. Credentials are not handled by either Postman or Newman so you will need a third party service to avoid delivering usernames/passwords.
   - Rate us : BB & XT
       
+## TO ADD if we have a time before conclusion
+- Show https://www.npmtrends.com/newman (for two years)
+- 
