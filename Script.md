@@ -36,6 +36,9 @@ This how we will present Postman & Newman
     - This look goods but, we need to run it one by one, can we just run the collection ?
   - XT  
     - Sure I got prepared for this talk ;). Let's have a look at this collection where I copied all our calls: search, pricing, booking and get booking status
+  - BB
+    - Add remark for the date and test
+  - XT
     - I added a prescript, some Javascript executed before the request, in order to set a dynamic departure time. We use some postman APIs provided in order to do so, pm.setEnvironment
     - And also a test, some Javascript executed after the request, in order to set some parameters for the next request, here the flight number. We are also doing some asertions, response ok, 7 flights in response, in order to automate our tests. You can see that we are also using some postman APIs and they include ChaiJS library in order to perform assertion, pm.expect.
     - Running the collection, .. and it is failing because we are quite too fast I guess.
