@@ -85,8 +85,7 @@ This how we will present Postman & Newman
   - What we have seen : 
      - BB
         - Proper test
-        - Not only test but also REST design, 
-        - No it start to support GraphQL
+        - Now it start to support GraphQL (beta)
   - Pros & Cons 
     - XT 
       - From our personal usage the pros are that we can easily use the collections we were already using within our team to perform some acceptance tests. The learning curve is small if you already know how to use Postman and Newman CLI is quite straightforward. So no new language to learn, writing your first end to end test will be quick. Community support is big, for example you can find reporters for a lot of languages.
