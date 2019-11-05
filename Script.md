@@ -3,9 +3,16 @@ This how we will present Postman & Newman
 
 - PPT (5 min - 7 min)
   - Introduction : BB
+    - Hello welcome to our talk session, Postman & Newman for your CICD
   - Polling : BB + XT
+    - We are going to start with a pooling session, please go to the this address and fill the form.
+    - I know that Postman is sound a bit boring, because it has been around like forever, something that old, but now we have a new..man, which really interesting because it is a new .. man
   - Result Polling Result : BB
   - Postman : BB
+    - Postman is not only an API Testing Tools, but now it is also a company.
+    - It deals with everything that related to API, such as testing, design, monitoring, mocking, collaborative working ..
+    - So if you are interested with that, you can go to their website here,
+    - They are building also a community. you can check it here, it has a lot of request such as new features, bug fix etc.
   - Newman 
     - XT
       - So, We will talk about Newman, a command line tool to run your Postman collections from a terminal. It is an open-source project with an active community, already in V4 and also an npm library easy to download and use in any NodeJS code.
@@ -39,12 +46,13 @@ This how we will present Postman & Newman
   - XT  
     - Ok Sure. Actually Postman provides some usefull endpoints. One we could be interested in is the delay. Here it will wait for 3 seconds until responding. Now let's copy it in our collection between the booking and the booking status with 5 seconds delay. Running the collection again.
   - BB  
+    - Those endpoints are called a Postman echo : Postman Echo is service you can use to test your REST clients and make sample API calls. It provides endpoints for GET, POST, PUT, various auth mechanisms and other utility endpoints.
     - It is better but the delay is FIXED is not ideal, the booking could be very fast or very slow
   - XT  
     - I agree with you, a fixed delay is not ideal to run some automated tests. As I said, prerequest scripts and tests contain Javascript, so we can write some code to solve our issue.
     - Using Javascript setTimeout and Postman.setNextRequest, we create the loop we need in order to wait for our booking to be successful. Let's try it.
   - BB  
-    - This way better, but this still manual in the sense, you developper to run it from their computer
+    - This way better, but this still manual in the sense, developper, tester need to run it from their computer
   - XT  
     - This is the time we introduce Newman
     - Exporting our collection and environment as json
@@ -60,7 +68,7 @@ This how we will present Postman & Newman
   - BB  
     - This is very cool, now we have the pipeline & regression test
     - But you know, this is a very new app, we don't have many users, I would like to know if it is available all the time
-    - Can we can run this test all the time ?        
+    - Can we can use this test for monitoring ?        
   - XT  
     - Sure, since Newman is a npm library we can write any Javascript, NodeJS code and run it as serverless functions for example as it fit very well monitoring purpose. We chose AWS Lambda and the function can be triggered by a schedule or any event in some AWS ressources. 
     - We decided to use Serverless framework to deploy our function with a schedule that will trigger Newman every 10 minutes.
@@ -71,7 +79,9 @@ This how we will present Postman & Newman
     - We also added a slack webhook, see this snippet will send the result to our slack channel. Now we can be aware of any issue arising.
     - During this talk our scheduled function was fired a few time as you can see, running Newman against our production application.
  - PPT
-  - What we have seen : BB
+  - What we have seen : 
+     - BB
+        - Proper test
   - Pros & Cons 
     - XT 
       - From our personal usage the pros are that we can easily use the collections we were already using within our team to perform some acceptance tests. The learning curve is small if you already know how to use Postman and Newman CLI is quite straightforward. So no new language to learn, writing your first end to end test will be quick. Community support is big, for example you can find reporters for a lot of languages.
