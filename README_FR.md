@@ -30,7 +30,7 @@ Démonstration
   - Intégrer Newman dans le CICD (Jenkins pipeline)    
   - Montrer les extentions Newman
   - Présenter comment utilser la librairie Newman en tant que paquet NodeJS pour faire du monitoring/alerting
-  - Comment on peut gérer les secrets
+  - Comment peut-on gérer les secrets
   
  - Conclusion : 
   - Devez-vous adopter Newman ? Comparaisons avec d'autres solutions disponibles
